@@ -41,27 +41,38 @@
             <conditions>
                 <condition id="0" name="On clicked" sid="170539137159249" type="IssPost" />
             </conditions>
-            <actions>
-                <action id="20" name="Set Value" sid="929691386368567" type="newissuecontent">
-                    <param id="0" name="Value">IssTitle.Text</param>
-                    <param id="1" name="Reference point">0</param>
-                    <param id="2" name="Key {n}">&quot;title&quot;</param>
-                </action>
-                <action id="20" name="Set Value" sid="115729029438204" type="newissuecontent">
-                    <param id="0" name="Value">IssDesc.Text</param>
-                    <param id="1" name="Reference point">0</param>
-                    <param id="2" name="Key {n}">&quot;description&quot;</param>
-                </action>
-                <action id="-16" name="Wait" sid="254663439960584" type="System">
-                    <param id="0" name="Seconds">dt</param>
-                </action>
-                <action id="0" name="Write" sid="733902103240372" type="Electron">
-                    <param id="0" name="Tag">&quot;postissue&quot;</param>
-                    <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; nextissue &amp; &quot;.json&quot;</param>
-                    <param id="2" name="Data">newissuecontent.AsJson(0)</param>
-                    <param id="3" name="Encoding Mode">0</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="567323897098396">
+                    <conditions>
+                        <condition id="0" inverted="1" name="Compare text" sid="240511498414481" type="IssTitle">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                            <param id="1" name="Case">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="20" name="Set Value" sid="929691386368567" type="newissuecontent">
+                            <param id="0" name="Value">IssTitle.Text</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;title&quot;</param>
+                        </action>
+                        <action id="20" name="Set Value" sid="115729029438204" type="newissuecontent">
+                            <param id="0" name="Value">IssDesc.Text</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;description&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="254663439960584" type="System">
+                            <param id="0" name="Seconds">dt</param>
+                        </action>
+                        <action id="0" name="Write" sid="733902103240372" type="Electron">
+                            <param id="0" name="Tag">&quot;postissue&quot;</param>
+                            <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; nextissue &amp; &quot;.json&quot;</param>
+                            <param id="2" name="Data">newissuecontent.AsJson(0)</param>
+                            <param id="3" name="Encoding Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="801538952873434">
             <conditions>
