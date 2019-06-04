@@ -9,6 +9,9 @@
                 <condition id="-2" name="On start of layout" sid="807982174088724" type="System" />
             </conditions>
             <actions>
+                <action id="30" name="Set title" sid="995719687734338" type="Electron">
+                    <param id="0" name="Title">&quot;New issue - Personal Issues&quot;</param>
+                </action>
                 <action id="-9" name="Set value" sid="675711370258301" type="System">
                     <param id="0" name="Variable">nextissue</param>
                     <param id="1" name="Value">issdataset.Value(0,&quot;nextissue&quot;)</param>

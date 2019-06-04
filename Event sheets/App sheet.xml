@@ -9,6 +9,9 @@
                 <condition id="-2" name="On start of layout" sid="224016672649049" type="System" />
             </conditions>
             <actions>
+                <action id="30" name="Set title" sid="368851513479474" type="Electron">
+                    <param id="0" name="Title">&quot;Personal Issues&quot;</param>
+                </action>
                 <action id="32" name="Maximize" sid="568563506455960" type="Electron" />
                 <action id="19" name="Include Javascript file" sid="994970542104687" type="UI">
                     <param id="0" name="Javascript file">&quot;script.js&quot;</param>
