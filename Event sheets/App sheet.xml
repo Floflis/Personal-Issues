@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>App sheet</name>
+    <events>
+        <include>Common sheet</include>
+        <event-block sid="806523564058118">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="224016672649049" type="System" />
+            </conditions>
+            <actions>
+                <action id="32" name="Maximize" sid="568563506455960" type="Electron" />
+                <action id="19" name="Include Javascript file" sid="994970542104687" type="UI">
+                    <param id="0" name="Javascript file">&quot;script.js&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="752720606937373" type="UI">
+                    <param id="0" name="CSS file">&quot;style.css&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="943792650552138" type="UI">
+                    <param id="0" name="CSS file">&quot;page-common.css&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="289795678845114" type="UI">
+                    <param id="0" name="CSS file">&quot;page-custom.css&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="302918853826804" type="UI">
+                    <param id="0" name="CSS file">&quot;app-common.css&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="751261159356441" type="UI">
+                    <param id="0" name="CSS file">&quot;app-custom.css&quot;</param>
+                </action>
+                <action disabled="1" id="2" name="Import CSS file" sid="946398050736324" type="UI">
+                    <param id="0" name="CSS file">&quot;dark-common.css&quot;</param>
+                </action>
+                <action id="19" name="Include Javascript file" sid="899324844801579" type="UI">
+                    <param id="0" name="Javascript file">&quot;bootstrap.min.js&quot;</param>
+                </action>
+                <action id="19" name="Include Javascript file" sid="339003747574287" type="UI">
+                    <param id="0" name="Javascript file">&quot;material.min.js&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="473604117283294" type="UI">
+                    <param id="0" name="CSS file">&quot;material.min.css&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="928703189522733" type="UI">
+                    <param id="0" name="CSS file">&quot;robotofont.css&quot;</param>
+                </action>
+                <action id="2" name="Import CSS file" sid="982682542923008" type="UI">
+                    <param id="0" name="CSS file">&quot;iconsfont.css&quot;</param>
+                </action>
+                <action id="8" name="Load content" sid="208140225315479" type="UI">
+                    <param id="0" name="URL">&quot;init.html&quot;</param>
+                    <param id="1" name="POST Data (Optional)">&quot;&quot;</param>
+                </action>
+                <action id="9" name="Read" sid="814157492296134" type="Electron">
+                    <param id="0" name="Tag">&quot;&quot;</param>
+                    <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                    <param id="2" name="Encoding">&quot;utf8&quot;</param>
+                </action>
+                <action id="0" name="Request URL" sid="197277582951709" type="AJAX">
+                    <param id="0" name="Tag">&quot;issuesdata&quot;</param>
+                    <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                </action>
+                <action id="60" name="LoadJSON" sid="193793302037527" type="newissuecontent">
+                    <param id="0" name="JSON">&quot;{}&quot;</param>
+                    <param id="1" name="Reference point">0</param>
+                    <param id="2" name="Key {n}"></param>
+                </action>
+                <action id="-16" name="Wait" sid="143404639321581" type="System">
+                    <param id="0" name="Seconds">dt</param>
+                </action>
+                <action id="0" name="Set New Object" sid="413368401236053" type="newissuecontent">
+                    <param id="0" name="Reference point">0</param>
+                    <param id="1" name="Key {n}">&quot;title&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="901260761522680" type="System">
+                    <param id="0" name="Seconds">dt</param>
+                </action>
+                <action id="0" name="Set New Object" sid="449899014494380" type="newissuecontent">
+                    <param id="0" name="Reference point">0</param>
+                    <param id="1" name="Key {n}">&quot;description&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block disabled="1" sid="590001726326575">
+                    <conditions />
+                    <actions>
+                        <action id="19" name="Include Javascript file" sid="655332235255019" type="UI">
+                            <param id="0" name="Javascript file">&quot;ZeroFrame.js&quot;</param>
+                        </action>
+                        <action id="19" name="Include Javascript file" sid="551232901630855" type="UI">
+                            <param id="0" name="Javascript file">&quot;ZeroPage.js&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="811395584260083">
+                    <conditions />
+                    <actions>
+                        <action id="19" name="Include Javascript file" sid="518366554995020" type="UI">
+                            <param id="0" name="Javascript file">&quot;popper.min.js&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="576421655441680">
+            <conditions>
+                <condition id="0" name="On completed" sid="560722187933513" type="AJAX">
+                    <param id="0" name="Tag">&quot;issuesdata&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="60" name="LoadJSON" sid="191898935415322" type="issdataset">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                    <param id="1" name="Reference point">0</param>
+                    <param id="2" name="Key {n}"></param>
+                </action>
+                <action id="-16" name="Wait" sid="966972918377197" type="System">
+                    <param id="0" name="Seconds">dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="580082781961418">
+            <conditions>
+                <condition id="3" name="On C2 Function" sid="631728415496965" type="UI" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="838092904235305">
+                    <conditions>
+                        <condition id="4" name="Compare C2 Function" sid="303092266911037" type="UI">
+                            <param id="0" name="C2">&quot;newissue&quot;</param>
+                            <param id="1" name="Case">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="452633523889789" type="System">
+                            <param id="0" name="Layout">Issue</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
