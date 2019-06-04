@@ -88,6 +88,9 @@
         <object-type global="1" name="newissuecontent" sid="640527367352624">
             <plugin id="JSON" />
         </object-type>
+        <object-type name="IssueNumber" sid="744333036820458">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>

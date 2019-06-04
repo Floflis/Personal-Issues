@@ -19,6 +19,9 @@
                 <action id="3" name="Set enabled" sid="566498425337542" type="IssPost">
                     <param id="0" name="Mode">1</param>
                 </action>
+                <action id="0" name="Set text" sid="600606509724173" type="IssueNumber">
+                    <param id="0" name="Text">&quot;#&quot; &amp; nextissue</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="400187261985968">
@@ -88,6 +91,9 @@
                     <param id="2" name="Data">issdataset.AsJson(0)</param>
                     <param id="3" name="Encoding Mode">0</param>
                 </action>
+                <action id="0" name="Set text" sid="997092673360855" type="IssueNumber">
+                    <param id="0" name="Text">&quot;#&quot; &amp; nextissue</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="859221164077661">
@@ -99,6 +105,12 @@
             <actions>
                 <action id="3" name="Set enabled" sid="495991609453370" type="IssPost">
                     <param id="0" name="Mode">1</param>
+                </action>
+                <action id="0" name="Set text" sid="429519176757234" type="IssTitle">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="479329870176948" type="IssDesc">
+                    <param id="0" name="Text">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>
