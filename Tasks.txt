@@ -1,5 +1,3 @@
-Message about empty title
-
 Read issues to list with HTML
 
 Display issue
@@ -13,6 +11,8 @@ Detect empty folder and use .folderdata
 Edit issue
 
 "Issue create" page (instead of using a C2 layout)
+
+Message about empty title
 
 Labels
 

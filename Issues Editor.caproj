@@ -91,6 +91,9 @@
         <object-type name="IssueNumber" sid="744333036820458">
             <plugin id="Text" />
         </object-type>
+        <object-type global="1" name="readissue" sid="783399296659836">
+            <plugin id="JSON" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
