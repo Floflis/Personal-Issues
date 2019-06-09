@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>App sheet</name>
     <events>
+        <variable constant="0" name="list" sid="770207479086474" static="0" type="number">0</variable>
         <include>Common sheet</include>
         <event-group description="" sid="717350796142956" title="Init">
             <sub-events>
@@ -133,10 +134,50 @@
                             <param id="0" name="URL">&quot;init.html&quot;</param>
                             <param id="1" name="POST Data (Optional)">&quot;&quot;</param>
                         </action>
+                        <action disabled="1" id="-16" name="Wait" sid="416310290725154" type="System">
+                            <param id="0" name="Seconds">dt</param>
+                        </action>
+                        <action disabled="1" id="19" name="List files" sid="144665940023200" type="Electron">
+                            <param id="0" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="884668349619236" type="System">
+                            <param id="0" name="Seconds">dt</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="610326567121744" type="System">
+                            <param id="0" name="Variable">list</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block disabled="1" sid="419520434659138">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="911501689960495" type="System">
+                    <param id="0" name="Variable">list</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="135998591404835" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block disabled="1" sid="486443238793397">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="975372329984429" type="System">
+                            <param id="0" name="Count">Electron.ListCount</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="24" name="Get elements" sid="453989137984797" type="UI">
+                            <param id="0" name="ID/Class">&quot;openedissues&quot;</param>
+                            <param id="1" name="Set">&quot;&quot;</param>
+                            <param id="2" name="Append">&quot;&lt;p&gt;Issue&lt;/p&gt;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <comment>After HTML is loaded, user clicks the button and can create a new issue. Actually, being redirected to the &quot;Issue&quot; C2 layout, but soon will be a page.</comment>
         <event-block sid="580082781961418">
             <conditions>
@@ -156,6 +197,95 @@
                             <param id="0" name="Layout">Issue</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="818429987746128">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="616998991096924" type="System">
+                    <param id="0" name="Variable">list</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="539225252641493" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="662225761120891">
+                    <conditions>
+                        <condition id="5" name="For each file/folder" sid="275622395972047" type="Electron">
+                            <param id="0" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot;</param>
+                            <param id="1" name="Files/Folders">1</param>
+                            <param id="2" name="Recursive">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="9" name="Read" sid="927963306632167" type="Electron">
+                            <param id="0" name="Tag">&quot;&quot;</param>
+                            <param id="1" name="Path">Electron.CurrentFileFolder</param>
+                            <param id="2" name="Encoding">&quot;utf8&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Request URL" sid="274281305803358" type="AJAX">
+                            <param id="0" name="Tag">&quot;issuesdata&quot;</param>
+                            <param id="1" name="URL">Electron.CurrentFileFolder</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="978854130978878">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="758571021487445" type="System">
+                                    <param id="0" name="First value">Electron.CurrentFileFolder</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">&quot;.folderdata&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="24" name="Get elements" sid="409227265259105" type="UI">
+                                    <param id="0" name="ID/Class">&quot;#openedissues&quot;</param>
+                                    <param id="1" name="Set">&quot;&quot;</param>
+                                    <param id="2" name="Append">&quot;&lt;p&gt;Issue &quot; &amp; Electron.CurrentFileFolder &amp;&quot;&lt;/p&gt;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="763749423590880">
+                    <conditions>
+                        <condition id="5" name="For each file/folder" sid="453607180124955" type="Electron">
+                            <param id="0" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/closed/&quot;</param>
+                            <param id="1" name="Files/Folders">1</param>
+                            <param id="2" name="Recursive">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="9" name="Read" sid="305193715797208" type="Electron">
+                            <param id="0" name="Tag">&quot;&quot;</param>
+                            <param id="1" name="Path">Electron.CurrentFileFolder</param>
+                            <param id="2" name="Encoding">&quot;utf8&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Request URL" sid="489168438006654" type="AJAX">
+                            <param id="0" name="Tag">&quot;issuesdata&quot;</param>
+                            <param id="1" name="URL">Electron.CurrentFileFolder</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="538341546558567">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="997180435808443" type="System">
+                                    <param id="0" name="First value">Electron.CurrentFileFolder</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">&quot;.folderdata&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="24" name="Get elements" sid="885009635964992" type="UI">
+                                    <param id="0" name="ID/Class">&quot;#closedissues&quot;</param>
+                                    <param id="1" name="Set">&quot;&quot;</param>
+                                    <param id="2" name="Append">&quot;&lt;p&gt;Issue &quot; &amp; Electron.CurrentFileFolder &amp;&quot;&lt;/p&gt;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>

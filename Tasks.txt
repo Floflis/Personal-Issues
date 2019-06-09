@@ -1,15 +1,14 @@
 Message about empty title
 
-Electron list issues
-Set array size according to issues count
-Add issues to array
-List issues
+Read issues to list with HTML
 
 Display issue
 
 Close issue
 
 Reopen issue
+
+Detect empty folder and use .folderdata
 
 Edit issue
 
