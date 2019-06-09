@@ -4,6 +4,7 @@
     <name>Issue sheet</name>
     <events>
         <variable constant="0" name="nextissue" sid="674316342760300" static="0" type="number">0</variable>
+        <comment>On start of this layout (New issue), update window title, set value &quot;nextissue&quot; from data.json, display the issue number based on that and set enabled the button to post new issue.</comment>
         <event-block sid="290683192739337">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="807982174088724" type="System" />
@@ -19,14 +20,15 @@
                 <action id="-16" name="Wait" sid="207620197286859" type="System">
                     <param id="0" name="Seconds">dt</param>
                 </action>
-                <action id="3" name="Set enabled" sid="566498425337542" type="IssPost">
-                    <param id="0" name="Mode">1</param>
-                </action>
                 <action id="0" name="Set text" sid="600606509724173" type="IssueNumber">
                     <param id="0" name="Text">&quot;#&quot; &amp; nextissue</param>
                 </action>
+                <action id="3" name="Set enabled" sid="566498425337542" type="IssPost">
+                    <param id="0" name="Mode">1</param>
+                </action>
             </actions>
         </event-block>
+        <comment>On clicked the return arrow button, return to the main app page.</comment>
         <event-block sid="400187261985968">
             <conditions>
                 <condition id="0" name="On clicked" sid="653999227321499" type="Return" />
@@ -37,6 +39,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>On clicked to post the issue, set JSON to issue data, and then write it into a new file.</comment>
         <event-block sid="938590665775376">
             <conditions>
                 <condition id="0" name="On clicked" sid="170539137159249" type="IssPost" />
@@ -79,6 +82,7 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>On successfully creating the file for new issue, set button disabled, increase number of next issue and write its number to JSON.</comment>
         <event-block sid="801538952873434">
             <conditions>
                 <condition id="0" name="On write success" sid="583760897421297" type="Electron">
@@ -115,6 +119,7 @@
                 </action>
             </actions>
         </event-block>
+        <comment>After successfully writing on data.json, reset fields and enable again the issue posting.</comment>
         <event-block sid="859221164077661">
             <conditions>
                 <condition id="0" name="On write success" sid="294977662043922" type="Electron">
@@ -122,14 +127,32 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="3" name="Set enabled" sid="495991609453370" type="IssPost">
-                    <param id="0" name="Mode">1</param>
-                </action>
                 <action id="0" name="Set text" sid="429519176757234" type="IssTitle">
                     <param id="0" name="Text">&quot;&quot;</param>
                 </action>
                 <action id="0" name="Set text" sid="479329870176948" type="IssDesc">
                     <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="20" name="Set Value" sid="444499484819118" type="newissuecontent">
+                    <param id="0" name="Value">&quot;&quot;</param>
+                    <param id="1" name="Reference point">0</param>
+                    <param id="2" name="Key {n}">&quot;title&quot;</param>
+                </action>
+                <action id="20" name="Set Value" sid="879617849867910" type="newissuecontent">
+                    <param id="0" name="Value">&quot;&quot;</param>
+                    <param id="1" name="Reference point">0</param>
+                    <param id="2" name="Key {n}">&quot;description&quot;</param>
+                </action>
+                <action id="20" name="Set Value" sid="404617437995498" type="newissuecontent">
+                    <param id="0" name="Value">&quot;&quot;</param>
+                    <param id="1" name="Reference point">0</param>
+                    <param id="2" name="Key {n}">&quot;date&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="405508478252073" type="System">
+                    <param id="0" name="Seconds">dt</param>
+                </action>
+                <action id="3" name="Set enabled" sid="495991609453370" type="IssPost">
+                    <param id="0" name="Mode">1</param>
                 </action>
             </actions>
         </event-block>
