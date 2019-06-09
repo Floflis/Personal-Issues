@@ -61,6 +61,11 @@
                             <param id="1" name="Reference point">0</param>
                             <param id="2" name="Key {n}">&quot;description&quot;</param>
                         </action>
+                        <action id="20" name="Set Value" sid="725961487775724" type="newissuecontent">
+                            <param id="0" name="Value">Browser.ExecJS(&quot;Date()&quot;)</param>
+                            <param id="1" name="Reference point">0</param>
+                            <param id="2" name="Key {n}">&quot;date&quot;</param>
+                        </action>
                         <action id="-16" name="Wait" sid="254663439960584" type="System">
                             <param id="0" name="Seconds">dt</param>
                         </action>
