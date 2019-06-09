@@ -49,19 +49,6 @@
                 <action id="2" name="Import CSS file" sid="982682542923008" type="UI">
                     <param id="0" name="CSS file">&quot;iconsfont.css&quot;</param>
                 </action>
-                <action id="8" name="Load content" sid="208140225315479" type="UI">
-                    <param id="0" name="URL">&quot;init.html&quot;</param>
-                    <param id="1" name="POST Data (Optional)">&quot;&quot;</param>
-                </action>
-                <action id="9" name="Read" sid="814157492296134" type="Electron">
-                    <param id="0" name="Tag">&quot;&quot;</param>
-                    <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
-                    <param id="2" name="Encoding">&quot;utf8&quot;</param>
-                </action>
-                <action id="0" name="Request URL" sid="197277582951709" type="AJAX">
-                    <param id="0" name="Tag">&quot;issuesdata&quot;</param>
-                    <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
-                </action>
                 <action id="60" name="LoadJSON" sid="193793302037527" type="newissuecontent">
                     <param id="0" name="JSON">&quot;{}&quot;</param>
                     <param id="1" name="Reference point">0</param>
@@ -80,6 +67,25 @@
                 <action id="0" name="Set New Object" sid="449899014494380" type="newissuecontent">
                     <param id="0" name="Reference point">0</param>
                     <param id="1" name="Key {n}">&quot;description&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="591170026926301" type="System">
+                    <param id="0" name="Seconds">dt</param>
+                </action>
+                <action id="0" name="Set New Object" sid="655885552528772" type="newissuecontent">
+                    <param id="0" name="Reference point">0</param>
+                    <param id="1" name="Key {n}">&quot;date&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="244845245800770" type="System">
+                    <param id="0" name="Seconds">dt</param>
+                </action>
+                <action id="9" name="Read" sid="814157492296134" type="Electron">
+                    <param id="0" name="Tag">&quot;&quot;</param>
+                    <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                    <param id="2" name="Encoding">&quot;utf8&quot;</param>
+                </action>
+                <action id="0" name="Request URL" sid="197277582951709" type="AJAX">
+                    <param id="0" name="Tag">&quot;issuesdata&quot;</param>
+                    <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
                 </action>
             </actions>
             <sub-events>
@@ -116,8 +122,12 @@
                     <param id="1" name="Reference point">0</param>
                     <param id="2" name="Key {n}"></param>
                 </action>
-                <action id="-16" name="Wait" sid="966972918377197" type="System">
+                <action id="-16" name="Wait" sid="788647179416790" type="System">
                     <param id="0" name="Seconds">dt</param>
+                </action>
+                <action id="8" name="Load content" sid="208140225315479" type="UI">
+                    <param id="0" name="URL">&quot;init.html&quot;</param>
+                    <param id="1" name="POST Data (Optional)">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>
