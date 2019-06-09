@@ -1,0 +1,29 @@
+Message about empty title
+
+Electron list issues
+Set array size according to issues count
+Add issues to array
+List issues
+
+Display issue
+
+Close issue
+
+Reopen issue
+
+Edit issue
+
+"Issue create" page (instead of using a C2 layout)
+
+Labels
+
+Milestones
+
+Signers
+
+Comments
+
+Attach images
+Attach files
+Chckbxs
+Ask for signee
