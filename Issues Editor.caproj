@@ -12,6 +12,7 @@
     <used-plugins>
         <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
         <plugin author="Pinco, Scirra" id="AdvTextBox" version="1.700000048">Advanced Text box</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="PlayLive" id="HTML_iFrame" version="1.419999957">HTML | iFrame</plugin>
@@ -93,6 +94,9 @@
         </object-type>
         <object-type global="1" name="readissue" sid="783399296659836">
             <plugin id="JSON" />
+        </object-type>
+        <object-type global="1" name="Array" sid="775461709022841">
+            <plugin id="Arr" />
         </object-type>
     </object-folder>
     <families />

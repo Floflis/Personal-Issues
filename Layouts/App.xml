@@ -71,6 +71,13 @@
     <nonworld-instances>
         <instance type="issdataset" uid="11" />
         <instance type="readissue" uid="14" />
+        <instance type="Array" uid="15">
+            <properties>
+                <width>10</width>
+                <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
     </nonworld-instances>
     <effects />
 </c2layout>

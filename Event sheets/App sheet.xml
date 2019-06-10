@@ -6,6 +6,7 @@
         <variable constant="0" name="list" sid="770207479086474" static="0" type="number">0</variable>
         <variable constant="0" name="openedissuecount" sid="984544287592379" static="0" type="number">0</variable>
         <variable constant="0" name="closedissuecount" sid="200800546288937" static="0" type="number">0</variable>
+        <variable constant="0" name="arraysize" sid="792497916985293" static="0" type="number">0</variable>
         <include>Common sheet</include>
         <event-group description="" sid="717350796142956" title="Init">
             <sub-events>
@@ -202,34 +203,42 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Add to" sid="706886802429216" type="System">
-                                            <param id="0" name="Variable">openedissuecount</param>
+                                        <action id="-10" name="Add to" sid="533127251213113" type="System">
+                                            <param id="0" name="Variable">arraysize</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
-                                        <action id="9" name="Read" sid="659214293951792" type="Electron">
-                                            <param id="0" name="Tag">&quot;&quot;</param>
-                                            <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
-                                            <param id="2" name="Encoding">&quot;utf8&quot;</param>
-                                        </action>
-                                        <action id="0" name="Request URL" sid="561447892289616" type="AJAX">
-                                            <param id="0" name="Tag">&quot;&quot;</param>
-                                            <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="276743513228511" type="System">
-                                            <param id="0" name="Seconds">dt</param>
-                                        </action>
-                                        <action id="60" name="LoadJSON" sid="138250940561267" type="readissue">
-                                            <param id="0" name="JSON">AJAX.LastData</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}"></param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="877876207655950" type="System">
-                                            <param id="0" name="Seconds">dt</param>
+                                        <action id="14" name="Log" sid="603406854375958" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">&quot;Updated array size&quot;</param>
                                         </action>
                                         <action id="24" name="Get elements" sid="409227265259105" type="UI">
                                             <param id="0" name="ID/Class">&quot;#openedissues&quot;</param>
                                             <param id="1" name="Set">&quot;&quot;</param>
                                             <param id="2" name="Append">&quot;&lt;p&gt;Issue &quot; &amp; Electron.CurrentFileFolder &amp;&quot;&lt;/p&gt;&quot;</param>
+                                        </action>
+                                        <action disabled="1" id="-10" name="Add to" sid="706886802429216" type="System">
+                                            <param id="0" name="Variable">openedissuecount</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action disabled="1" id="9" name="Read" sid="659214293951792" type="Electron">
+                                            <param id="0" name="Tag">&quot;&quot;</param>
+                                            <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
+                                            <param id="2" name="Encoding">&quot;utf8&quot;</param>
+                                        </action>
+                                        <action disabled="1" id="0" name="Request URL" sid="561447892289616" type="AJAX">
+                                            <param id="0" name="Tag">&quot;&quot;</param>
+                                            <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
+                                        </action>
+                                        <action disabled="1" id="-16" name="Wait" sid="276743513228511" type="System">
+                                            <param id="0" name="Seconds">dt</param>
+                                        </action>
+                                        <action disabled="1" id="60" name="LoadJSON" sid="138250940561267" type="readissue">
+                                            <param id="0" name="JSON">AJAX.LastData</param>
+                                            <param id="1" name="Reference point">0</param>
+                                            <param id="2" name="Key {n}"></param>
+                                        </action>
+                                        <action disabled="1" id="-16" name="Wait" sid="877876207655950" type="System">
+                                            <param id="0" name="Seconds">dt</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -268,28 +277,28 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block disabled="1" sid="757734682620492">
+                            <conditions>
+                                <condition id="-15" inverted="1" name="Is group active" sid="480505952093691" type="System">
+                                    <param id="0" name="Group name">&quot;Issue listing&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="24" name="Get elements" sid="857516910548325" type="UI">
+                                    <param id="0" name="ID/Class">&quot;#closedcount&quot;</param>
+                                    <param id="1" name="Set">closedissuecount</param>
+                                    <param id="2" name="Append">&quot;&quot;</param>
+                                </action>
+                                <action id="24" name="Get elements" sid="115502304317432" type="UI">
+                                    <param id="0" name="ID/Class">&quot;#openedcount&quot;</param>
+                                    <param id="1" name="Set">openedissuecount</param>
+                                    <param id="2" name="Append">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block disabled="1" sid="757734682620492">
-            <conditions>
-                <condition id="-15" inverted="1" name="Is group active" sid="480505952093691" type="System">
-                    <param id="0" name="Group name">&quot;Issue listing&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="24" name="Get elements" sid="857516910548325" type="UI">
-                    <param id="0" name="ID/Class">&quot;#closedcount&quot;</param>
-                    <param id="1" name="Set">closedissuecount</param>
-                    <param id="2" name="Append">&quot;&quot;</param>
-                </action>
-                <action id="24" name="Get elements" sid="115502304317432" type="UI">
-                    <param id="0" name="ID/Class">&quot;#openedcount&quot;</param>
-                    <param id="1" name="Set">openedissuecount</param>
-                    <param id="2" name="Append">&quot;&quot;</param>
-                </action>
-            </actions>
-        </event-block>
     </events>
 </c2eventsheet>

@@ -1,3 +1,5 @@
+Detect when Electron's "for each" is done
+
 Read issues to list with HTML
 
 Display issue
