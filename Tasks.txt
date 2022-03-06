@@ -1,6 +1,3 @@
-Fix issue with JSON addon not loading JSON arrays
-https://github.com/FrenchYann/JSON_for_construct2/issues/2
-
 List hoverable/clickable issues, with their C2 function based on their ID
 
 Detect when Electron's "for each" is done
