@@ -7,6 +7,7 @@
         <variable constant="0" name="openedissuecount" sid="984544287592379" static="0" type="number">0</variable>
         <variable constant="0" name="closedissuecount" sid="200800546288937" static="0" type="number">0</variable>
         <variable constant="0" name="arraysize" sid="792497916985293" static="0" type="number">0</variable>
+        <variable constant="0" name="load_openissues_loop" sid="279621713203888" static="0" type="number">0</variable>
         <include>Common sheet</include>
         <event-group description="" sid="717350796142956" title="Init">
             <sub-events>
@@ -85,14 +86,23 @@
                         <action id="-16" name="Wait" sid="244845245800770" type="System">
                             <param id="0" name="Seconds">dt</param>
                         </action>
-                        <action id="9" name="Read" sid="814157492296134" type="Electron">
+                        <action disabled="1" id="9" name="Read" sid="814157492296134" type="Electron">
                             <param id="0" name="Tag">&quot;&quot;</param>
-                            <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                            <param id="1" name="Path">&quot;/media/floflis/Windows 7/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
                             <param id="2" name="Encoding">&quot;utf8&quot;</param>
                         </action>
-                        <action id="0" name="Request URL" sid="197277582951709" type="AJAX">
+                        <action disabled="1" id="0" name="Request URL" sid="197277582951709" type="AJAX">
                             <param id="0" name="Tag">&quot;issuesdata&quot;</param>
-                            <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                            <param id="1" name="URL">&quot;/media/floflis/Windows 7/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                        </action>
+                        <action id="9" name="Read" sid="745910920407078" type="Electron">
+                            <param id="0" name="Tag">&quot;&quot;</param>
+                            <param id="1" name="Path">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                            <param id="2" name="Encoding">&quot;utf8&quot;</param>
+                        </action>
+                        <action id="0" name="Request URL" sid="606489738982114" type="AJAX">
+                            <param id="0" name="Tag">&quot;issuesdata&quot;</param>
+                            <param id="1" name="URL">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -138,6 +148,15 @@
                             <param id="1" name="POST Data (Optional)">&quot;&quot;</param>
                         </action>
                         <action id="-16" name="Wait" sid="884668349619236" type="System">
+                            <param id="0" name="Seconds">dt</param>
+                        </action>
+                        <action disabled="1" id="19" name="List files" sid="985373581812780" type="Electron">
+                            <param id="0" name="Path">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/open&quot;</param>
+                        </action>
+                        <action disabled="1" id="19" name="List files" sid="273455333574818" type="Electron">
+                            <param id="0" name="Path">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/open/&quot;</param>
+                        </action>
+                        <action disabled="1" id="-16" name="Wait" sid="589301317643614" type="System">
                             <param id="0" name="Seconds">dt</param>
                         </action>
                         <action id="-9" name="Set value" sid="610326567121744" type="System">
@@ -186,13 +205,56 @@
                         <comment>Open issues</comment>
                         <event-block sid="662225761120891">
                             <conditions>
-                                <condition id="5" name="For each file/folder" sid="275622395972047" type="Electron">
-                                    <param id="0" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot;</param>
+                                <condition disabled="1" id="5" name="For each file/folder" sid="275622395972047" type="Electron">
+                                    <param id="0" name="Path">&quot;/media/floflis/Windows 7/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot;</param>
+                                    <param id="1" name="Files/Folders">1</param>
+                                    <param id="2" name="Recursive">0</param>
+                                </condition>
+                                <condition id="5" name="For each file/folder" sid="620131342876602" type="Electron">
+                                    <param id="0" name="Path">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/open/&quot;</param>
                                     <param id="1" name="Files/Folders">1</param>
                                     <param id="2" name="Recursive">0</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action id="-10" name="Add to" sid="533127251213113" type="System">
+                                    <param id="0" name="Variable">arraysize</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="14" name="Log" sid="603406854375958" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;Updated array size&quot;</param>
+                                </action>
+                                <action id="24" name="Get elements" sid="409227265259105" type="UI">
+                                    <param id="0" name="ID/Class">&quot;#openedissues&quot;</param>
+                                    <param id="1" name="Set">&quot;&quot;</param>
+                                    <param id="2" name="Append">&quot;&lt;p&gt;Issue &quot; &amp; Electron.CurrentFileFolder &amp;&quot;&lt;/p&gt;&quot;</param>
+                                </action>
+                                <action disabled="1" id="-10" name="Add to" sid="706886802429216" type="System">
+                                    <param id="0" name="Variable">openedissuecount</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action disabled="1" id="9" name="Read" sid="659214293951792" type="Electron">
+                                    <param id="0" name="Tag">&quot;&quot;</param>
+                                    <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
+                                    <param id="2" name="Encoding">&quot;utf8&quot;</param>
+                                </action>
+                                <action disabled="1" id="0" name="Request URL" sid="561447892289616" type="AJAX">
+                                    <param id="0" name="Tag">&quot;&quot;</param>
+                                    <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
+                                </action>
+                                <action disabled="1" id="-16" name="Wait" sid="276743513228511" type="System">
+                                    <param id="0" name="Seconds">dt</param>
+                                </action>
+                                <action disabled="1" id="60" name="LoadJSON" sid="138250940561267" type="readissue">
+                                    <param id="0" name="JSON">AJAX.LastData</param>
+                                    <param id="1" name="Reference point">0</param>
+                                    <param id="2" name="Key {n}"></param>
+                                </action>
+                                <action disabled="1" id="-16" name="Wait" sid="877876207655950" type="System">
+                                    <param id="0" name="Seconds">dt</param>
+                                </action>
+                            </actions>
                             <sub-events>
                                 <event-block sid="978854130978878">
                                     <conditions>
@@ -202,44 +264,58 @@
                                             <param id="2" name="Second value">&quot;.folderdata&quot;</param>
                                         </condition>
                                     </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block disabled="1" sid="885287209141379">
+                            <conditions>
+                                <condition id="-10" name="For" sid="273360196227634" type="System">
+                                    <param id="0" name="Name">&quot;&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">Electron.FileFolderCount-1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block disabled="1" sid="123055407937561">
+                                    <conditions>
+                                        <condition disabled="1" id="-8" name="Compare two values" sid="140270598661050" type="System">
+                                            <param id="0" name="First value">load_openissues_loop</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">Electron.FileFolderCount</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="136032305973385" type="System">
+                                            <param id="0" name="Variable">load_openissues_loop</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">Electron.FileFolderCount</param>
+                                        </condition>
+                                    </conditions>
                                     <actions>
-                                        <action id="-10" name="Add to" sid="533127251213113" type="System">
-                                            <param id="0" name="Variable">arraysize</param>
+                                        <action id="-10" name="Add to" sid="116664997993191" type="System">
+                                            <param id="0" name="Variable">load_openissues_loop</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
-                                        <action id="14" name="Log" sid="603406854375958" type="Browser">
-                                            <param id="0" name="Type">0</param>
-                                            <param id="1" name="Message">&quot;Updated array size&quot;</param>
+                                        <action disabled="1" id="0" name="Set text" sid="664629550818102" type="IssTitle">
+                                            <param id="0" name="Text">Electron.ListAt(loopindex)</param>
                                         </action>
-                                        <action id="24" name="Get elements" sid="409227265259105" type="UI">
+                                        <action id="24" name="Get elements" sid="295580514517169" type="UI">
                                             <param id="0" name="ID/Class">&quot;#openedissues&quot;</param>
                                             <param id="1" name="Set">&quot;&quot;</param>
-                                            <param id="2" name="Append">&quot;&lt;p&gt;Issue &quot; &amp; Electron.CurrentFileFolder &amp;&quot;&lt;/p&gt;&quot;</param>
+                                            <param id="2" name="Append">&quot;&lt;p&gt;Issue &quot; &amp; Electron.ListAt(loopindex) &amp;&quot;&lt;/p&gt;&quot;</param>
                                         </action>
-                                        <action disabled="1" id="-10" name="Add to" sid="706886802429216" type="System">
-                                            <param id="0" name="Variable">openedissuecount</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                        <action disabled="1" id="9" name="Read" sid="659214293951792" type="Electron">
-                                            <param id="0" name="Tag">&quot;&quot;</param>
-                                            <param id="1" name="Path">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
-                                            <param id="2" name="Encoding">&quot;utf8&quot;</param>
-                                        </action>
-                                        <action disabled="1" id="0" name="Request URL" sid="561447892289616" type="AJAX">
-                                            <param id="0" name="Tag">&quot;&quot;</param>
-                                            <param id="1" name="URL">&quot;C:/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/open/&quot; &amp; Electron.CurrentFileFolder</param>
-                                        </action>
-                                        <action disabled="1" id="-16" name="Wait" sid="276743513228511" type="System">
-                                            <param id="0" name="Seconds">dt</param>
-                                        </action>
-                                        <action disabled="1" id="60" name="LoadJSON" sid="138250940561267" type="readissue">
-                                            <param id="0" name="JSON">AJAX.LastData</param>
-                                            <param id="1" name="Reference point">0</param>
-                                            <param id="2" name="Key {n}"></param>
-                                        </action>
-                                        <action disabled="1" id="-16" name="Wait" sid="877876207655950" type="System">
-                                            <param id="0" name="Seconds">dt</param>
-                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block disabled="1" sid="548020939754576">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="225197230627754" type="System">
+                                            <param id="0" name="Variable">load_openissues_loop</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">Electron.FileFolderCount</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-24" name="Stop loop" sid="731260024870038" type="System" />
                                     </actions>
                                 </event-block>
                             </sub-events>
