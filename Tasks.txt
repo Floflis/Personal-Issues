@@ -1,3 +1,7 @@
+"scripts" folder just like in Floflis Central
+
+use issue-listing.sh to list only *.json files, in increasing numbers order
+
 Detect when Electron's "for each" is done
 
 Read issues to list with HTML
