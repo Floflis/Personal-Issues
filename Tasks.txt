@@ -1,20 +1,26 @@
-List hoverable/clickable issues, with their C2 function based on their ID
+also list closed issues
 
-Detect when Electron's "for each" is done
+List hoverable/clickable issues
 
-Read issues to list with HTML
-
+Load different issues' json file into the same JSON addon instance
+read title of every git issue
 Display issue
 
 Close issue
-
 Reopen issue
 
-Detect empty folder and use .folderdata
+Attach images
 
-Edit issue
+Edit issue (with git history)
 
+get HTML input value
 "Issue create" page (instead of using a C2 layout)
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Detect when Electron's "for each" is done
+
+Detect empty folder and use .folderdata
 
 Message about empty title
 
@@ -26,7 +32,6 @@ Signers
 
 Comments
 
-Attach images
 Attach files
 Chckbxs
 Ask for signee
