@@ -338,38 +338,6 @@
                                     <param id="0" name="Variable">issdatasetValue0opentotal</param>
                                     <param id="1" name="Value">issdataset.Value(0,&quot;open&quot;,0,&quot;total&quot;)</param>
                                 </action>
-                                <action id="14" name="Log" sid="407014496662279" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;Test: &quot; &amp; issdatasetValue0opentotal</param>
-                                </action>
-                                <action id="14" name="Log" sid="289751797895383" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;Test 2: &quot; &amp; int(issdatasetValue0opentotal)</param>
-                                </action>
-                                <action id="14" name="Log" sid="625854996276363" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;Test 3: &quot; &amp; float(issdatasetValue0opentotal)</param>
-                                </action>
-                                <action disabled="1" id="14" name="Log" sid="201787277819848" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;Debug: &quot; &amp; issdataset.Value(0,&quot;open&quot;,&quot;total&quot;)</param>
-                                </action>
-                                <action disabled="1" id="14" name="Log" sid="274733565931045" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;New debug: &quot; &amp; issdataset.Value(0,&quot;nextissue&quot;)</param>
-                                </action>
-                                <action disabled="1" id="14" name="Log" sid="144256404252537" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;Another debug: &quot; &amp; issdataset.Value(0,&quot;open&quot;)</param>
-                                </action>
-                                <action disabled="1" id="14" name="Log" sid="966138866529286" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;Another debug? &quot; &amp; issdataset.Value(0,&quot;open&quot;,&quot;total&quot;)</param>
-                                </action>
-                                <action id="14" name="Log" sid="613811349869157" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;Another debug, yes: &quot; &amp; issdataset.Value(0,&quot;open&quot;,0,&quot;total&quot;)</param>
-                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="444107068612272">
@@ -398,7 +366,7 @@
                                         <action id="24" name="Get elements" sid="823396653888835" type="UI">
                                             <param id="0" name="ID/Class">&quot;#openedissues&quot;</param>
                                             <param id="1" name="Set">&quot;&quot;</param>
-                                            <param id="2" name="Append">&quot;&lt;p&gt;Issue &quot; &amp; issdataset.Value(0,&quot;open&quot;,0,&quot;items&quot;,0,loopindex) &amp;&quot;&lt;/p&gt;&quot;</param>
+                                            <param id="2" name="Append">&quot;&lt;div onclick=C2(&apos;display-issue-&quot; &amp; loopindex &amp; &quot;&apos;);&gt;Issue &quot; &amp; issdataset.Value(0,&quot;open&quot;,0,&quot;items&quot;,0,loopindex) &amp;&quot;&lt;/div&gt;&quot;</param>
                                         </action>
                                     </actions>
                                 </event-block>
