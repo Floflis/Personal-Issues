@@ -149,7 +149,6 @@
         <file name="script.js" />
         <file name="ZeroFrame.js" />
         <file name="ZeroPage.js" />
-        <file name="icon.png" />
         <file name="style.css" />
         <file name="loading.gif" />
         <file name="app-custom.css" />
@@ -157,5 +156,6 @@
         <file name="app-common.css" />
         <file name="page-common.css" />
         <file name="page-common.js" />
+        <file name="icon.png" />
     </files-folder>
 </c2project>
