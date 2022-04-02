@@ -87,37 +87,17 @@
                         <action id="-16" name="Wait" sid="244845245800770" type="System">
                             <param id="0" name="Seconds">dt</param>
                         </action>
-                        <action disabled="1" id="9" name="Read" sid="814157492296134" type="Electron">
-                            <param id="0" name="Tag">&quot;&quot;</param>
-                            <param id="1" name="Path">&quot;/media/floflis/Windows 7/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
-                            <param id="2" name="Encoding">&quot;utf8&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Request URL" sid="197277582951709" type="AJAX">
-                            <param id="0" name="Tag">&quot;issuesdata&quot;</param>
-                            <param id="1" name="URL">&quot;/media/floflis/Windows 7/Users/Notebook Positivo/Desktop/Linx/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
-                        </action>
                         <action id="9" name="Read" sid="745910920407078" type="Electron">
                             <param id="0" name="Tag">&quot;&quot;</param>
-                            <param id="1" name="Path">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                            <param id="1" name="Path">&quot;/1/personal/data/issues/data.json&quot;</param>
                             <param id="2" name="Encoding">&quot;utf8&quot;</param>
                         </action>
                         <action id="0" name="Request URL" sid="606489738982114" type="AJAX">
                             <param id="0" name="Tag">&quot;issuesdata&quot;</param>
-                            <param id="1" name="URL">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/data.json&quot;</param>
+                            <param id="1" name="URL">&quot;/1/personal/data/issues/data.json&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
-                        <event-block disabled="1" sid="590001726326575">
-                            <conditions />
-                            <actions>
-                                <action id="19" name="Include Javascript file" sid="655332235255019" type="UI">
-                                    <param id="0" name="Javascript file">&quot;ZeroFrame.js&quot;</param>
-                                </action>
-                                <action id="19" name="Include Javascript file" sid="551232901630855" type="UI">
-                                    <param id="0" name="Javascript file">&quot;ZeroPage.js&quot;</param>
-                                </action>
-                            </actions>
-                        </event-block>
                         <event-block sid="811395584260083">
                             <conditions />
                             <actions>
@@ -157,15 +137,6 @@
                             <param id="1" name="POST Data (Optional)">&quot;&quot;</param>
                         </action>
                         <action id="-16" name="Wait" sid="884668349619236" type="System">
-                            <param id="0" name="Seconds">dt</param>
-                        </action>
-                        <action disabled="1" id="19" name="List files" sid="985373581812780" type="Electron">
-                            <param id="0" name="Path">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/open&quot;</param>
-                        </action>
-                        <action disabled="1" id="19" name="List files" sid="273455333574818" type="Electron">
-                            <param id="0" name="Path">&quot;/media/daniell/Windows 10 main/Users/Daniell/Desktop/Orgute/peeper-user-daniell-mesquita/.issues/open/&quot;</param>
-                        </action>
-                        <action disabled="1" id="-16" name="Wait" sid="589301317643614" type="System">
                             <param id="0" name="Seconds">dt</param>
                         </action>
                         <action id="-9" name="Set value" sid="610326567121744" type="System">
